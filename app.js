@@ -11,6 +11,9 @@ app.get('/time', (req, res) => {
     res.json({ date: new Date().toISOString() });
 });
 
+app.get('/health', (req, res) => {
+    res.status(200).send("OK");
+});
 // --- 關鍵修改 ---
 // 如果是直接執行 node app.js，則啟動 Server
 if (require.main === module) {
