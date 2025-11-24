@@ -1,6 +1,13 @@
 pipeline {
     agent any
     
+    // --- 這裡是用來修復 docker command not found 的關鍵 ---
+    // 強制將常見的 Mac 執行檔路徑加入 Jenkins 的 PATH
+    environment {
+        PATH = "/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin:${env.PATH}"
+    }
+    // ---------------------------------------------------
+
     tools {
         nodejs 'NodeJS-24-LTS'
     }
@@ -15,7 +22,6 @@ pipeline {
         }
 
         stage('Deploy') {
-            // 移除 when { branch 'dev' }，因為 Job 設定已經限制只跑 dev 了
             steps {
                 script {
                     echo 'Deploying to Docker...'
@@ -33,7 +39,6 @@ pipeline {
         }
 
         stage('Health Check') {
-            // 移除 when { branch 'dev' }
             steps {
                 // 等待服務啟動
                 sleep 5
