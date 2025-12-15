@@ -106,7 +106,7 @@ pipeline {
             script {
                 def message = """
                 {
-                    "content": "**Build Failed!** \\n**Name:** 江彥宏\\n**ID:** B11705044\\n**Job:** ${env.JOB_NAME}\\n**Build:** ${env.BUILD_NUMBER}\\n**Repo:** ${env.GIT_URL}\\n**Branch:** ${env.BRANCH_NAME}\\n**Status:** ❌ FAILURE"
+                    "content": "**Build Failed!** \\n**Name:** 李訓佑\\n**ID:** B11705022\\n**Job:** ${env.JOB_NAME}\\n**Build:** ${env.BUILD_NUMBER}\\n**Repo:** ${env.GIT_URL}\\n**Branch:** ${env.BRANCH_NAME}\\n**Status:** ❌ FAILURE"
                 }
                 """
                 sh "curl -H 'Content-Type: application/json' -d '${message}' ${env.DISCORD_URL}"
