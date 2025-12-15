@@ -5,13 +5,21 @@ import pluginJs from "@eslint/js";
 export default [
   pluginJs.configs.recommended,
   {
+    // ADD THIS LINE: Only apply these settings to .js files
+    files: ["**/*.js"], 
     languageOptions: {
-      // 這裡告訴 ESLint 你的程式碼運行在什麼環境
       globals: {
-        ...globals.node,    // 解決 require, module 報錯
-        ...globals.jest,    // 解決 describe, it, expect 報錯
+        ...globals.node,    // Solves require, module errors
+        ...globals.jest,    // Solves describe, it, expect errors
       },
-      sourceType: "commonjs", // 因為你使用 require() 語法
+      sourceType: "commonjs", // Correctly treats your app code as CommonJS
     },
   },
+  {
+    // Optional: Explicitly treat .mjs files (like this config) as modules
+    files: ["**/*.mjs"],
+    languageOptions: {
+      sourceType: "module",
+    },
+  }
 ];
