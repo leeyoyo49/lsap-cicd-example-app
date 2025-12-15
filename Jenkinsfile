@@ -1,10 +1,11 @@
 pipeline {
     agent any
-
+    tools {
+        nodejs "node"  // 這裡的名字要跟你在步驟4設定的一樣
+    }
     environment {
         // 設定你的環境變數
-        PATH = "/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
-
+        PATH = "/opt/homebrew/bin:$PATH"
         // 在 Jenkins > Manage Jenkins > Credentials 設定 Docker Hub 帳號密碼，ID 填在這裡
         DOCKER_CREDS_ID = 'docker-hub-login' 
         
