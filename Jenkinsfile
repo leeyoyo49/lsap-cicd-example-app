@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        nodejs "node"  // 這裡的名字要跟你在步驟4設定的一樣
+        nodejs "cicd lsap"  // 這裡的名字要跟你在步驟4設定的一樣
     }
     environment {
         // 設定你的環境變數
