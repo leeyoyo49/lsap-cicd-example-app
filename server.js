@@ -10,4 +10,3 @@ const server = app.listen(PORT, () => {
 // Export the server instance for testing
 module.exports = server;
 
-sup
