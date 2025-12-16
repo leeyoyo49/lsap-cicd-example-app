@@ -4,7 +4,7 @@ const app = express();
 const port = 3000;
 
 app.get('/', (req, res) => {
-    res.send("Welcome to the CI/CD Workshop!");
+    res.send("Sup Welcome to the CI/CD Workshop!");
 });
 
 app.get('/time', (req, res) => {
